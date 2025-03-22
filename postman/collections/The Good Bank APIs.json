@@ -1,0 +1,583 @@
+{
+	"info": {
+		"_postman_id": "f90d3b90-d4e4-4c37-a22e-47bdd770b296",
+		"name": "The Good Bank APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "29142931-f90d3b90-d4e4-4c37-a22e-47bdd770b296"
+	},
+	"item": [
+		{
+			"name": "/",
+			"item": [
+				{
+					"name": "Ping",
+					"id": "a4a0c49c-a9bf-4c3e-9c39-e16b79f1a9cb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "eb7825ec-cbe3-4b18-adaa-e62325587c4c"
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "change-password",
+					"item": [
+						{
+							"name": "User Change Password",
+							"id": "e5668eeb-0aa3-4a5f-b304-3e9b99fd015d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user/change-password",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"change-password"
+									]
+								},
+								"description": "This API is used to update the user password. The user must be authenticated and must remember the current password to update."
+							},
+							"response": []
+						}
+					],
+					"id": "181e07fb-2ebe-49a8-8266-e371b897017f"
+				},
+				{
+					"name": "logout",
+					"item": [
+						{
+							"name": "User Logout",
+							"id": "10060750-630d-4b64-b839-71c480b34752",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-API-key",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{apiKey}}",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/logout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"logout"
+									]
+								},
+								"description": "This API revokes an active user session."
+							},
+							"response": []
+						}
+					],
+					"id": "fa330b18-5a02-4cfd-82f0-4f8325628e37"
+				},
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "User Login",
+							"id": "0010cc13-25b2-4e33-ae9c-f74e0d258fe6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "c0484933-c760-4fd4-9aeb-f6d1c6e7ff30"
+				},
+				{
+					"name": "Update User Information",
+					"id": "0b78f1ca-e3fa-45aa-b627-29beda4f50b3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "key",
+									"value": "X-API-key",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "{{apiKey}}",
+									"type": "string"
+								},
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "Authenticated users can update their user information."
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"id": "030924b7-94f8-41de-82c0-958090e51333",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user"
+							]
+						},
+						"description": "Register a new user with The Good Bank. The username must be unique."
+					},
+					"response": []
+				}
+			],
+			"id": "fb0d5cf7-6a00-43fa-869f-eca72bf907ad"
+		},
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "{user_id}",
+					"item": [
+						{
+							"name": "summary",
+							"item": [
+								{
+									"name": "Account summary",
+									"id": "b2d4d7b8-4cc0-494b-b9f7-0efc5284bcf1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/account/:user_id/summary",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"account",
+												":user_id",
+												"summary"
+											],
+											"variable": [
+												{
+													"key": "user_id",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Fetch account summary for a single user."
+									},
+									"response": []
+								}
+							],
+							"id": "ca82678b-7e0b-4c96-8b1b-dda1818baca0"
+						}
+					],
+					"id": "9456fcba-dc5b-4d71-964f-0ec76c762acd"
+				},
+				{
+					"name": "transactions",
+					"item": [
+						{
+							"name": "Account transactions",
+							"id": "ae67cac2-34c4-4c41-8dda-4ab844ec112d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-API-key",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{apiKey}}",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/account/transactions?limit=<integer>&filter=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"account",
+										"transactions"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "<integer>",
+											"description": "number of transactions to display"
+										},
+										{
+											"key": "filter",
+											"value": "<string>",
+											"description": "Search string to filter on transaction party"
+										}
+									]
+								},
+								"description": "Fetch transactions for a single account."
+							},
+							"response": []
+						}
+					],
+					"id": "bfddb72b-7c0d-4731-9abf-ca79a1ea520a"
+				}
+			],
+			"id": "a0f7c1f5-62e1-4f82-806c-38b56be14a08"
+		},
+		{
+			"name": "people",
+			"item": [
+				{
+					"name": "customers",
+					"item": [
+						{
+							"name": "Our customers",
+							"id": "00a6e2ca-1e01-4ce4-bb9c-9d5d070ad39f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-API-key",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{apiKey}}",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/people/customers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"people",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "1e160cbd-bf48-42b3-b608-160d23cbf4e7"
+				}
+			],
+			"id": "0232f127-883c-442d-9ae9-93012ebfa013"
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "credit",
+					"item": [
+						{
+							"name": "Credit amount",
+							"id": "fb2a207d-d38b-4246-a282-b78f5ce4fdc4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-API-key",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{apiKey}}",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/credit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"credit"
+									]
+								},
+								"description": "To be used by the bank tellers to cash checks, receive deposits, savings account transactions among other things."
+							},
+							"response": []
+						}
+					],
+					"id": "1a9a0e31-5044-4f70-b306-852adf905fc1"
+				},
+				{
+					"name": "debit",
+					"item": [
+						{
+							"name": "Debit amount",
+							"id": "036e9ec1-357f-4835-9d7b-83953c41f93c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "X-API-key",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "{{apiKey}}",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/admin/debit",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"debit"
+									]
+								},
+								"description": "To be used by the bank tellers to cash checks, receive deposits, savings account transactions among other things."
+							},
+							"response": []
+						}
+					],
+					"id": "6d029c99-3777-4d80-9284-4162a9466a1c"
+				}
+			],
+			"id": "59ab0c35-d842-4cf6-96d6-71d2c3ea4155"
+		}
+	],
+	"variable": [
+		{
+			"id": "4b50fb59-3bc1-4cda-9e93-f98397a67d57",
+			"key": "baseUrl",
+			"value": "http://security.postman-breakable.com"
+		},
+		{
+			"id": "f78e137c-362a-4fe5-b0ce-e41c5fc6e3fb",
+			"key": "user_id",
+			"value": ""
+		}
+	]
+}

@@ -1,0 +1,1160 @@
+{
+	"info": {
+		"_postman_id": "45c7e385-66ea-4456-a50a-1eee64babb8a",
+		"name": "Day 04: Authorization",
+		"description": "## Instructions for Day 4: Authorization\n\n1.  **Get the challenge:** Fork the parent collection to your own public workspace.\n2.  **Read the documentation:** Select the first folder. Expand the context bar on the right to follow the instructions in the collection documentation.\n3.  **Submit your solution:** Select the second folder and follow the instructions in the documentation to validate your solution.\n\n## Learning objectives\n- Authorize API requests by using API key\n- Use an authorization helper\n- Explain inheritance regarding auth type\n- Authorize API requests by using cookies\n\n## Concepts covered\n\n*   [Authorize requests](https://learning.postman.com/docs/sending-requests/authorization/)\n*   [Inheriting Auth Details](https://youtu.be/WFiYsfSkyXE) video\n*   [Securely using API keys in Postman](https://blog.postman.com/how-to-use-api-keys/) blog\n\n## Additional resources\n\n* [Use cookies](https://learning.postman.com/docs/sending-requests/cookies/) docs\n* [Sync cookies for authentication](https://youtu.be/jfgFNw5SoUg) video",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "29142931-45c7e385-66ea-4456-a50a-1eee64babb8a"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "All Collections - header",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d25853fc-43ee-4fc9-aab2-1e98cf31271d",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "c11ea7d1-d1a8-4aa5-bf17-e790ee3de832",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.getpostman.com/collections",
+							"protocol": "https",
+							"host": [
+								"api",
+								"getpostman",
+								"com"
+							],
+							"path": [
+								"collections"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>",
+									"description": "Filter results by collections that match the given name.",
+									"disabled": true
+								},
+								{
+									"key": "workspace",
+									"value": "<string>",
+									"description": "A workspace ID.",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "<number>",
+									"description": "The maximum number of rows to return in the response.",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "<number>",
+									"description": "The zero-based offset of the first item to return.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections.\n\n**Note:**\n\nFiltering with the `name` parameter when you also pass the `limit` and `offset` parameters is not supported."
+					},
+					"response": [
+						{
+							"id": "2a827a20-4d94-482b-9741-c53b00a8faea",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "4018f259-9ee4-49ed-aa10-dd9a6d85e5d5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        },\n        {\n            \"id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"name\": \"Test Collection\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-01-13T10:21:46.000Z\",\n            \"updatedAt\": \"2022-02-12T11:29:56.000Z\",\n            \"uid\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"isPublic\": false,\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        },\n        {\n            \"id\": \"f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"name\": \"Postman Echo\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2021-04-11T09:18:26.000Z\",\n            \"updatedAt\": \"2022-05-01T15:29:32.000Z\",\n            \"uid\": \"12345678-f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"isPublic\": true\n        }\n    ]\n}"
+						},
+						{
+							"id": "a1da135b-f541-4a90-a089-4e1c692dc736",
+							"name": "Filter by name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?name=Test Collection",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Test Collection"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "ea0a6abb-1cf7-4d2a-9483-af6f39264de6"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"name\": \"Test Collection\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-01-13T10:21:46.000Z\",\n            \"updatedAt\": \"2022-02-12T11:29:56.000Z\",\n            \"uid\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"isPublic\": false,\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"id": "63079d79-a679-4084-b3f7-4b5b2deef3ef",
+							"name": "Filter by Workspace",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?workspace=1f0df51a-8658-4ee8-a2a1-d2567dfa09a9",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "1f0df51a-8658-4ee8-a2a1-d2567dfa09a9"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "1bf47270-b03d-473e-a560-29ceee3ef591"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        }\n    ]\n}"
+						},
+						{
+							"id": "047ad1cb-aaab-41e7-a51d-3fb9bd92bb32",
+							"name": "Response with Pagination",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?limit=3&offset=0",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "3"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "2f81663f-e25f-411d-9ff0-62ed9030ea16"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        },\n        {\n            \"id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"name\": \"Test Collection\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-01-13T10:21:46.000Z\",\n            \"updatedAt\": \"2022-02-12T11:29:56.000Z\",\n            \"uid\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"isPublic\": false,\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        },\n        {\n            \"id\": \"f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"name\": \"Postman Echo\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2021-04-11T09:18:26.000Z\",\n            \"updatedAt\": \"2022-05-01T15:29:32.000Z\",\n            \"uid\": \"12345678-f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"isPublic\": true\n        }\n    ],\n    \"meta\": {\n        \"total\": 30,\n        \"offset\": 0,\n        \"limit\": 3\n    }\n}"
+						},
+						{
+							"id": "08768c42-8fe5-46a1-9e7e-7e5f3167dcf3",
+							"name": "Invalid Workspace",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?workspace=12345",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "12345"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "0ed05383-b25d-4cb4-9853-a48aa81dcf05"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": []\n}"
+						},
+						{
+							"id": "75fa3533-8c3e-4aad-afe6-49ff475e8c38",
+							"name": "Rate Limit Exceeded",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"uuid": "1c94399f-389e-4f4e-9cd9-88ac26c83ae4"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59",
+									"uuid": "53e822aa-59f3-4e9e-9f5c-9c4be23d8da6"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1631439621",
+									"uuid": "8a4bf757-bf9d-4fe3-9a5b-3368b3380706"
+								},
+								{
+									"key": "X-RateLimit-RetryAfter",
+									"value": "4",
+									"description": "",
+									"uuid": "8523db5c-0920-4677-bdd9-6f99e3140b7b"
+								},
+								{
+									"key": "RetryAfter",
+									"value": "4",
+									"description": "",
+									"uuid": "38b995f6-6833-4caa-abe3-b57e006c5e0e"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"rateLimited\",\n    \"message\": \"Rate limit exceeded. Please retry after 1669048687\"\n}"
+						}
+					]
+				},
+				{
+					"name": "All Collections - query params",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1d36a2e0-dde6-40e3-988f-72e55bc70b49",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "7c590416-2ed7-45dc-94dc-14a809327750",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.getpostman.com/collections",
+							"protocol": "https",
+							"host": [
+								"api",
+								"getpostman",
+								"com"
+							],
+							"path": [
+								"collections"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>",
+									"description": "Filter results by collections that match the given name.",
+									"disabled": true
+								},
+								{
+									"key": "workspace",
+									"value": "<string>",
+									"description": "A workspace ID.",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "<number>",
+									"description": "The maximum number of rows to return in the response.",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "<number>",
+									"description": "The zero-based offset of the first item to return.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections.\n\n**Note:**\n\nFiltering with the `name` parameter when you also pass the `limit` and `offset` parameters is not supported."
+					},
+					"response": [
+						{
+							"id": "65b81726-fb91-42c5-b6cb-af85d2fce739",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "07ab87f9-3400-4904-ac41-e768de701c6c"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        },\n        {\n            \"id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"name\": \"Test Collection\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-01-13T10:21:46.000Z\",\n            \"updatedAt\": \"2022-02-12T11:29:56.000Z\",\n            \"uid\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"isPublic\": false,\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        },\n        {\n            \"id\": \"f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"name\": \"Postman Echo\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2021-04-11T09:18:26.000Z\",\n            \"updatedAt\": \"2022-05-01T15:29:32.000Z\",\n            \"uid\": \"12345678-f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"isPublic\": true\n        }\n    ]\n}"
+						},
+						{
+							"id": "6b5fa6ba-d720-403c-accd-2ff2cc7faa14",
+							"name": "Filter by name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?name=Test Collection",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Test Collection"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "b5357d99-d7bd-4ca6-ab37-2dbcba53e9c2"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"name\": \"Test Collection\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-01-13T10:21:46.000Z\",\n            \"updatedAt\": \"2022-02-12T11:29:56.000Z\",\n            \"uid\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"isPublic\": false,\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"id": "d91344dc-a2a9-4af3-be71-9304579f4eef",
+							"name": "Filter by Workspace",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?workspace=1f0df51a-8658-4ee8-a2a1-d2567dfa09a9",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "1f0df51a-8658-4ee8-a2a1-d2567dfa09a9"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "dcbe8c92-e301-4f18-8587-48e7ffc67d6d"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        }\n    ]\n}"
+						},
+						{
+							"id": "d223da4e-5c9f-4e63-8e17-89c9dc204fba",
+							"name": "Response with Pagination",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?limit=3&offset=0",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "3"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "391f79c7-2970-4b1b-9789-0f502395e632"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        },\n        {\n            \"id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"name\": \"Test Collection\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-01-13T10:21:46.000Z\",\n            \"updatedAt\": \"2022-02-12T11:29:56.000Z\",\n            \"uid\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"isPublic\": false,\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        },\n        {\n            \"id\": \"f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"name\": \"Postman Echo\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2021-04-11T09:18:26.000Z\",\n            \"updatedAt\": \"2022-05-01T15:29:32.000Z\",\n            \"uid\": \"12345678-f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"isPublic\": true\n        }\n    ],\n    \"meta\": {\n        \"total\": 30,\n        \"offset\": 0,\n        \"limit\": 3\n    }\n}"
+						},
+						{
+							"id": "99026b59-2850-4cb3-8ece-a309b12c3047",
+							"name": "Invalid Workspace",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?workspace=12345",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "12345"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "3df94ca3-a76b-4094-8fe9-297898e5ef90"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": []\n}"
+						},
+						{
+							"id": "8d3db04b-d99e-439d-81e6-a2d21c0a8041",
+							"name": "Rate Limit Exceeded",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"uuid": "8b2c6a21-09af-4770-bf00-c40ca0fdf943"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59",
+									"uuid": "5ec9a0a6-4870-42cb-8a72-0a7fd6e9400c"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1631439621",
+									"uuid": "d4e92ff5-08d7-433b-b3be-2d39ed3a86ce"
+								},
+								{
+									"key": "X-RateLimit-RetryAfter",
+									"value": "4",
+									"description": "",
+									"uuid": "89000350-b906-475c-939c-a44c16be3e3e"
+								},
+								{
+									"key": "RetryAfter",
+									"value": "4",
+									"description": "",
+									"uuid": "f9700f2f-9382-4a8f-b68f-50e38685fe82"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"rateLimited\",\n    \"message\": \"Rate limit exceeded. Please retry after 1669048687\"\n}"
+						}
+					]
+				},
+				{
+					"name": "All Collections - auth helper",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f239e82a-018e-488b-96c6-c4c28318be71",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "2190b49b-2107-4faa-a988-7a5fa83407f8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{vault:postman_api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.getpostman.com/collections",
+							"protocol": "https",
+							"host": [
+								"api",
+								"getpostman",
+								"com"
+							],
+							"path": [
+								"collections"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "<string>",
+									"description": "Filter results by collections that match the given name.",
+									"disabled": true
+								},
+								{
+									"key": "workspace",
+									"value": "<string>",
+									"description": "A workspace ID.",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "<number>",
+									"description": "The maximum number of rows to return in the response.",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "<number>",
+									"description": "The zero-based offset of the first item to return.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Gets all of your [collections](https://www.getpostman.com/docs/collections). The response includes all of your subscribed collections.\n\n**Note:**\n\nFiltering with the `name` parameter when you also pass the `limit` and `offset` parameters is not supported."
+					},
+					"response": [
+						{
+							"id": "0315120a-6a0e-48e8-8b63-d5684157e0f8",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "3b321084-1bfc-4818-81fb-4b13f61e0b97"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        },\n        {\n            \"id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"name\": \"Test Collection\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-01-13T10:21:46.000Z\",\n            \"updatedAt\": \"2022-02-12T11:29:56.000Z\",\n            \"uid\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"isPublic\": false,\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        },\n        {\n            \"id\": \"f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"name\": \"Postman Echo\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2021-04-11T09:18:26.000Z\",\n            \"updatedAt\": \"2022-05-01T15:29:32.000Z\",\n            \"uid\": \"12345678-f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"isPublic\": true\n        }\n    ]\n}"
+						},
+						{
+							"id": "08bb284b-6db0-4bbd-a9c4-c04233135fc2",
+							"name": "Filter by name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?name=Test Collection",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Test Collection"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "d5d5ba29-3621-4989-b4ff-ebda79992169"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"name\": \"Test Collection\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-01-13T10:21:46.000Z\",\n            \"updatedAt\": \"2022-02-12T11:29:56.000Z\",\n            \"uid\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"isPublic\": false,\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"id": "dc561ff2-2bd5-4bd6-b517-e33cdff65122",
+							"name": "Filter by Workspace",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?workspace=1f0df51a-8658-4ee8-a2a1-d2567dfa09a9",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "1f0df51a-8658-4ee8-a2a1-d2567dfa09a9"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "7f9205e3-aa87-4b73-8114-4e84b8365ad6"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        }\n    ]\n}"
+						},
+						{
+							"id": "fbef2de4-0907-4a2c-a836-66193d218344",
+							"name": "Response with Pagination",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?limit=3&offset=0",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "3"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "22cb2277-faad-41ef-a6aa-28cdedfb36dd"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": [\n        {\n            \"id\": \"dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"name\": \"Cloud API\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-04-12T10:29:46.000Z\",\n            \"updatedAt\": \"2022-04-12T10:29:56.000Z\",\n            \"uid\": \"12345678-dac5eac9-148d-a32e-b76b-3edee9da28f7\",\n            \"isPublic\": true\n        },\n        {\n            \"id\": \"12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"name\": \"Test Collection\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2022-01-13T10:21:46.000Z\",\n            \"updatedAt\": \"2022-02-12T11:29:56.000Z\",\n            \"uid\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\",\n            \"isPublic\": false,\n            \"fork\": {\n                \"label\": \"Test Fork\",\n                \"createdAt\": \"2022-06-16T19:51:44.069Z\",\n                \"from\": \"12345678-12ece9e1-2abf-4edc-8e34-de66e74114d2\"\n            }\n        },\n        {\n            \"id\": \"f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"name\": \"Postman Echo\",\n            \"owner\": \"12345678\",\n            \"createdAt\": \"2021-04-11T09:18:26.000Z\",\n            \"updatedAt\": \"2022-05-01T15:29:32.000Z\",\n            \"uid\": \"12345678-f695cab7-6878-eb55-7943-ad88e1ccfd65\",\n            \"isPublic\": true\n        }\n    ],\n    \"meta\": {\n        \"total\": 30,\n        \"offset\": 0,\n        \"limit\": 3\n    }\n}"
+						},
+						{
+							"id": "7c58c4c4-9d57-4e0c-b8b6-da5dfeaad7fa",
+							"name": "Invalid Workspace",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections?workspace=12345",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "12345"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									},
+									"uuid": "015bf221-be67-407e-a5ab-8aa5a7a38dfd"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"collections\": []\n}"
+						},
+						{
+							"id": "f18b0977-8d55-4ec3-812e-7f216d6dc28f",
+							"name": "Rate Limit Exceeded",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://api.getpostman.com/collections",
+									"protocol": "https",
+									"host": [
+										"api",
+										"getpostman",
+										"com"
+									],
+									"path": [
+										"collections"
+									]
+								}
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60",
+									"uuid": "1949e374-7a87-47e2-8cd5-c883bac91cc3"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59",
+									"uuid": "b5e1a78f-cacf-4f15-84b5-886f68be5602"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1631439621",
+									"uuid": "d3c15694-a031-44ad-bd0d-0cdd328fa665"
+								},
+								{
+									"key": "X-RateLimit-RetryAfter",
+									"value": "4",
+									"description": "",
+									"uuid": "1441c214-ab6f-46f0-96a3-fc279f28108a"
+								},
+								{
+									"key": "RetryAfter",
+									"value": "4",
+									"description": "",
+									"uuid": "7453de47-678e-4035-aa1e-b3ade03782a8"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"rateLimited\",\n    \"message\": \"Rate limit exceeded. Please retry after 1669048687\"\n}"
+						}
+					]
+				}
+			],
+			"id": "c810a3bb-fbe5-462b-8c1d-d53a0fa5e35c",
+			"description": "It's time to work on your next challenge.\n\nThe [Postman API](https://learning.postman.com/docs/developer/intro-api/) lets you programmatically access data stored in your Postman account. This API requires an API key to tell the API server that a request it receives is from you and that you are allowed access to the data. Take a look at the documentation and browse the collection.\n\n1. **Add a request**: Fork the [Postman API collection](https://www.postman.com/postman/workspace/postman-public-workspace/collection/12959542-c8142d51-e97c-46b6-bd77-52bb66712c9a?ctx=documentation) to your public workspace in the same way you forked today's challenge. Then find a request to get all of your collections. Duplicate it, and drag the copy over to this folder `Authorization`. Rename the request `All Collections - header`.\n    \n2. **Add a header**: In the collection documentation, we see there are two ways to authorize this particular request. Let's start with adding an authorization header. Under the **Headers** tab, add a key `x-api-key` with the value `{{vault:postman_api_key}}`. Hover over the variable to make sure Postman is reading in the correct value from the _Postman Vault_. If the Postman API key is not already added to your _Postman Vault_, do that now. **Send** to make sure you receive a 200 status code, and then **Save** your changes.\n    \n3. **Add a query parameter**: Duplicate the request, and rename the request `All Collections - query params`. In this new request, delete the header you added in the previous request. Again, following the instructions in the collection documentation for this particular API, go to the **Params** tab. Add a key `apikey` with a value `{{vault:postman_api_key}}`. **Send** to make sure you receive a 200 status code, and then **Save** your changes.\n    \n4. **Add an auth helper**: Instead of manually adding a header or params, let's use one of the authorization helpers provided by Postman. Duplicate the last request, and rename the request `All Collections - auth helper`. Delete the key-value pair under the **Params** tab. Under the **Authorization** tab, select `API key` type from the dropdown. Add `x-api-key` and `{{vault:postman_api_key}}` to be added as a header. **Send** to make sure you receive a 200 status code, and then save your changes. Look under **Headers** to see the header that Postman auto-generated from the auth helper.\n    \n5. **Add collection-level auth**: Since all of the requests in this collection require the same authorization method, let's add a collection-level authorization helper. For each of these three requests, **delete** the added header, **delete** the params, and **update** the Auth type to `Inherit auth from parent`. The parent of this request is the folder or collection that contains these requests. Select the `Day 04: Authorization` collection, and add the `API key` auth helper under the `Authorization` tab like you did in the previous step. **Send** at least one of the requests to make sure you receive a 200 status code, and then save all of your changes.\n    \n\nThere's a number of ways API servers can require authorization. Take a look at the other [auth helpers](https://learning.postman.com/docs/sending-requests/authorization/) available in Postman.\n\nPostman can capture cookies for a browser or client application using the [Postman proxy](https://learning.postman.com/docs/sending-requests/capturing-request-data/capturing-http-requests/) or [Postman Interceptor](https://learning.postman.com/docs/sending-requests/capturing-request-data/interceptor/). You can't sync cookies with the Postman web app. Make sure you've installed the Postman desktop app. Take a look at the additional resources and try syncing cookies on your own.\n\nOnce you complete these steps, move on to the next folder in this collection to submit your solution. Follow the instructions in the request documentation."
+		},
+		{
+			"name": "Submit your solution",
+			"item": [
+				{
+					"name": "submit collection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0b6c4927-1c72-491a-9348-3bea393a0636",
+								"exec": [
+									"// counter for passed tests",
+									"let pass = 0",
+									"let totalToPass = 5",
+									"",
+									"let collection = pm.response.json().collection",
+									"",
+									"pm.test(\"If you have any failures, review the failed test results or ask for support in the community forum. Remember to save your changes if you update the collection. When all of your tests pass, you are done with today's challenge.\", () => {",
+									"    pm.expect(true);",
+									"    pass += 1",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", () => {",
+									"    pm.response.to.have.status(200);",
+									"    pass += 1",
+									"});",
+									"",
+									"pm.test(\"Correct collection returned\", () => {",
+									"    pm.expect(collection.info.name).equals(\"Day 04: Authorization\")",
+									"    pass += 1",
+									"})",
+									"",
+									"let folder = collection.item.find(fol => {return fol.name === \"Authorization\"})",
+									"",
+									"pm.test(\"Requests added correctly\", () => {",
+									"    pm.expect(collection.item[0].item.length, 'check number the of requests').equals(3)",
+									"",
+									"    let headerRequest = collection.item[0].item.find(req => { return req.name === \"All Collections - header\"})",
+									"    let queryRequest = collection.item[0].item.find(req => { return req.name === \"All Collections - query params\"})",
+									"    let authRequest = collection.item[0].item.find(req => { return req.name === \"All Collections - auth helper\"})",
+									"    pm.expect(headerRequest.name, 'check the header request name').equals(\"All Collections - header\")",
+									"    pm.expect(queryRequest.name, 'check the query param request name').equals(\"All Collections - query params\")",
+									"    pm.expect(authRequest.name, 'check the auth helper request name').equals(\"All Collections - auth helper\")",
+									"",
+									"    pass += 1",
+									"})",
+									"",
+									"pm.test(\"Auth added correctly\", () => {",
+									"    pm.expect(collection.auth.type, 'check the collection auth type').equals(\"apikey\")",
+									"    pm.expect(collection.auth.apikey[0].value, 'check the api key').contains.oneOf([\"X-api-key\", \"{{vault:postman_api_key}}\"])",
+									"",
+									"    pass += 1",
+									"})",
+									"",
+									"// visualization for test results",
+									"let template",
+									"if (pass == totalToPass) {",
+									"    template = `🍪 passing!",
+									"        <br />",
+									"        <img src=\"https://media2.giphy.com/media/dudcZA9e14HIY/giphy.gif?cid=ecf05e47uvc5i15fc8a33uuwpv5ymtmgqj2g8p2lp5nc6xke&rid=giphy.gif&ct=g\" />",
+									"    `",
+									"} else {",
+									"    template = `🙅 please try again",
+									"        <br />",
+									"        <img src=\"https://media3.giphy.com/media/ZQvBOPZCn0LfO/giphy.gif?cid=ecf05e473v2u4e51l0p7rd6pvxim8kqrbu6yqioz36uyngp4&rid=giphy.gif&ct=g\" />",
+									"    `",
+									"}",
+									"pm.visualizer.set(template)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c61a75fc-e897-4e83-8965-baa294d37dde",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "24c266c1-7d91-4afc-8070-dfe204f4bd40",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{vault:postman_api_key}}"
+							}
+						],
+						"url": {
+							"raw": "https://api.getpostman.com/collections/29142931-29c47067-87e6-4c92-8acf-aec1afea5ee7",
+							"protocol": "https",
+							"host": [
+								"api",
+								"getpostman",
+								"com"
+							],
+							"path": [
+								"collections",
+								"29142931-29c47067-87e6-4c92-8acf-aec1afea5ee7"
+							]
+						},
+						"description": "It's time to check your collection.\n\n1. **Get the collection ID:** Select the collection in the sidebar. Then in the context bar to the right, select the `Info` icon and copy the collection `ID`.\n    \n2. **Update the request URL:** Update the `collection_uid` in the request URL with the collection `ID` from the previous step, using any method you prefer.\n    \n3. **Get your Postman API Key**: Create a new [Postman API Key](https://go.postman.co/settings/me/api-keys) and then open _Postman Vault_ (Accessed via the bottom right menu bar). Create a new _Postman Vault_ variable called `postman_api_key` and add your Postman API Key as the Value.  \n    Once the changes are saved, Postman will use the _Postman Vault_ variable to authorize your request as shown under the **Headers** tab of the request.\n    \n4. **Validate your solution**: Hit **Send** and look under the **Test Results** tab of the server response at the bottom to review your test results.\n    \n\nIf you have any failures, [review the failed test results](https://youtu.be/S3GKLTVRtmE) or ask for support in the [community forum](https://community.postman.com/). When all of your tests pass, you are done with today's challenge."
+					},
+					"response": []
+				}
+			],
+			"id": "ce5236da-8d77-475c-b913-7d21cc8f6e7a",
+			"description": "Follow the instructions in the request documentation."
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{vault:postman_api_key}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "x-api-key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2512afcf-f000-4e38-8fd1-828fe21ec77b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "549073d2-85ec-4552-8c1b-3db8493d1108",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
