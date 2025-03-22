@@ -38,4 +38,22 @@ jobs:
       - name: Run API tests
         run: |
           postman collection run "${{ github.workspace }}/postman/collections/Day 01: API client.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+           postman collection run "${{ github.workspace }}/postman/collections/Day 02: Version control(1).json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 02: Version control.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 03: Debugging.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 04: Authorization.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 05: Variables and scripts.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 06: API tests.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 07: Run test suites.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 08: Output test results(1).json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 08: Output test results.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 09: API workflows.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 10: Test coverage.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 11: Validation.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 12: Use libraries.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 13: Mock servers.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 14: More tests.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 15: Submit for badge.json" -e "29142931-1b13f979-4b33-48c6-a149-9ccf5458f14e"
+          postman collection run "${{ github.workspace }}/postman/collections/mockForTesting.json"
+          postman collection run "${{ github.workspace }}/postman/collections/The Good Bank APIs.json"
          
