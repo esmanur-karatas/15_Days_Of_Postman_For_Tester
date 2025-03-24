@@ -37,8 +37,7 @@ jobs:
         run: postman login --with-api-key ${{ secrets.POSTMAN_15_DAYS_OF_KEY }}
       - name: Run API tests
         run: |
-          postman collection run "${{ github.workspace }}/postman/collections/Day 01: API client.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
-           postman collection run "${{ github.workspace }}/postman/collections/Day 02: Version control(1).json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
+          postman collection run "${{ github.workspace }}/postman/collections/Day 02: Version control(1).json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
           postman collection run "${{ github.workspace }}/postman/collections/Day 02: Version control.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
           postman collection run "${{ github.workspace }}/postman/collections/Day 03: Debugging.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
           postman collection run "${{ github.workspace }}/postman/collections/Day 04: Authorization.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
