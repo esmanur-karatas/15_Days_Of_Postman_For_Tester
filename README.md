@@ -11,49 +11,49 @@ Bu depo, 15 Günlük Postman Test Uzmanları İçin challenge'ını tamamladığ
 Her günün challenge'ını kısaca özetleyelim:
 
 ### Day 1: Introduction to Postman and Basic Request
-- Created basic GET requests and explored the Postman interface.
+- Temel GET istekleri oluşturuldu ve Postman arayüzü keşfedildi.
 
 ### Day 2: Working with URL Parameters
-- Learned how to send parameters with GET requests and test for the correct values.
+- GET istekleriyle parametrelerin nasıl gönderileceğini ve doğru değerlerin nasıl test edileceğini öğrendim.
 
 ### Day 3: Handling Headers and Authentication
-- Worked with headers, including authorization tokens and handling API key authentication.
+- Yetkilendirme belirteçleri ve API anahtarı kimlik doğrulamasının işlenmesi de dahil olmak üzere başlıklarla çalışıldı.
 
 ### Day 4: Post Requests and Request Body
-- Practiced sending POST requests with JSON data and testing the response body.
+- JSON verileriyle POST istekleri gönderme ve yanıt gövdesini test etme pratiği yaptım.
 
 ### Day 5: Testing APIs with Status Codes
-- Focused on status codes and learned to validate responses with assertions.
+- Durum kodlarına odaklandım ve yanıtları doğrulamayı öğrendim.
 
 ### Day 6: Working with Query Parameters
-- Explored query parameters and how to use them effectively in requests.
+- Sorgu parametrelerini ve bunların isteklerde etkili bir şekilde nasıl kullanılacağını araştırdık.
 
 ### Day 7: Using Postman Collections
-- Created and managed Postman collections for better organization and execution.
+- Daha iyi organizasyon ve yürütme için Postman koleksiyonları oluşturuldu ve yönetildi.
 
 ### Day 8: Writing Tests with Postman
-- Learned how to write tests to automate API validation and ensure correct behavior.
+- API doğrulamasını otomatikleştirmek ve doğru davranışı sağlamak için testlerin nasıl yazılacağını öğrendim.
 
 ### Day 9: Working with Environments
-- Set up different environments and variables to manage different API configurations.
+- Farklı API yapılandırmalarını yönetmek için farklı ortamlar ve değişkenler ayarlayın.
 
 ### Day 10: Automating API Tests
-- Created automated tests using the Postman collection runner and environments.
+- Postman toplama çalıştırıcısı ve ortamlarını kullanarak otomatik testler oluşturuldu.
 
 ### Day 11: Mocking APIs
-- Implemented mock APIs for testing purposes without requiring an actual backend.
+- Gerçek bir arka uç gerektirmeden test amaçlı sahte API'ler uygulandı.
 
 ### Day 12: Advanced Postman Features
-- Delved deeper into advanced features such as scripts, pre-request scripts, and automation.
+- Komut dosyaları, ön talep komut dosyaları ve otomasyon gibi gelişmiş özelliklerin derinliklerine inildi.
 
 ### Day 13: Running Tests with Newman
-- Ran Postman collections using Newman, the command-line collection runner, for continuous integration.
+- Sürekli entegrasyon için komut satırı koleksiyon çalıştırıcısı Newman'ı kullanarak Postman koleksiyonlarını çalıştırdım.
 
 ### Day 14: Postman Monitors
-- Set up Postman monitors to schedule and automate test runs at regular intervals.
+- Test çalışmalarını düzenli aralıklarla planlamak ve otomatikleştirmek için Postman izleyicilerini ayarlayın.
 
 ### Day 15: Final Challenge and Review
-- Completed the final challenge, which consolidated everything learned throughout the 15 days.
+- 15 gün boyunca öğrenilen her şeyin pekiştirildiği final mücadelesini tamamladık.
 
 ## Başlarken
 
