@@ -55,5 +55,5 @@ jobs:
           postman collection run "${{ github.workspace }}/postman/collections/Day 14: More tests.json" -e "29142931-ae08936d-17cd-45ba-adb3-05411526f905"
           postman collection run "${{ github.workspace }}/postman/collections/Day 15: Submit for badge.json" -e "29142931-1b13f979-4b33-48c6-a149-9ccf5458f14e"
           postman collection run "${{ github.workspace }}/postman/collections/mockForTesting.json"
-          postman collection run "${{ github.workspace }}/postman/collections/The Good Bank APIs.json"
+          postman collection run "${{ github.workspace }}/postman/collections/The Good Bank APIs.json" 
          
